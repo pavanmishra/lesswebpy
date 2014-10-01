@@ -20,7 +20,7 @@ A tiny pythonic wrapper around web.py's request handling.
 
 All those magical web.* are now available in context variable.
 
-```
+```python
 
 	def hello(ctx):
 		user_data = ctx.input(color=[])
@@ -32,7 +32,7 @@ All those magical web.* are now available in context variable.
 	import less.web
 	app = less.web.application(urls, locals())
 
-```python
+```
 
 Only a part of web.py request handling has been masked with `less.web`. Rest of them are required to 
 do what they already did.
