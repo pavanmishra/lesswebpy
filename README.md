@@ -35,7 +35,7 @@ app = less.web.application(urls, locals())
 ```
 
 Only a part of web.py request handling has been masked with `less.web`. Rest of them are required to
-do what they already did.
+do what they did already.
 
 ```python
 import web
