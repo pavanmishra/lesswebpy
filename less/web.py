@@ -6,24 +6,24 @@ def hook_less():
 
   Lets you write:
 
-  	import web
+  import web
 
-  	class index:
-  		def GET(self):
-  			web.header('Content-Type', 'text/html; charset=utf-8', unique=True)
-  			web.setcookie('age')
-  			web.cookies.get('age')
-  			web.input(myfile=None)
-        return 'Spelled'
+  class index:
+    def GET(self):
+  		web.header('Content-Type', 'text/html; charset=utf-8', unique=True)
+  		web.setcookie('age')
+  		web.cookies.get('age')
+  		web.input(myfile=None)
+      return 'Spelled'
 
   Without magic as:
 
-    def index(ctx):
-      ctx.header('Content-Type', 'text/html; charset=utf-8', unique=True)
-      ctx.setcookie('age')
-      ctx.cookies.get('age')
-      ctx.input(myfile=None)
-      return 'dispelled'
+  def index(ctx):
+    ctx.header('Content-Type', 'text/html; charset=utf-8', unique=True)
+    ctx.setcookie('age')
+    ctx.cookies.get('age')
+    ctx.input(myfile=None)
+    return 'Dispelled'
   '''
   if web.config.get('session'): web.ctx.session = web.config.session
   web.ctx.setcookie = web.setcookie
@@ -35,7 +35,7 @@ def hook_less():
 
 def application(urls, env):
   '''
-  A magic less web.py application sample
+  A magic less web.py application
 
   def hello(ctx, name):
   	if not name:
