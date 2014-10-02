@@ -34,6 +34,14 @@ def hook_less(app):
     web.ctx.data = web.data
   return _hook
 
+def compile_to_webpy(urls):
+  ''' convert to webpy format '''
+  return [component
+          for method, pattern, handler in urls
+          for component in webpy_handler_class(method, pattern, handler) ]
+
+def chunk_urls(urls):
+  return map(None, *[iter(urls)]*3)
 
 def application(urls, env):
   '''
@@ -58,14 +66,6 @@ def application(urls, env):
     _Handler.__dict__[method] = wrap(handler)
     env[handler.__name__] = _Handler
     return pattern, handler.__name__
-  def compile_to_webpy(urls):
-    ''' convert to webpy format '''
-    return [component
-            for method, pattern, handler in urls
-            for component in webpy_handler_class(method, pattern, handler) ]
-  def chunk_urls(urls):
-    return map(None, *[iter(urls)]*3)
-  print compile_to_webpy(chunk_urls(urls))
   app = web.application(compile_to_webpy(chunk_urls(urls)), env)
   app.add_processor(web.loadhook(hook_less(app)))
   return app

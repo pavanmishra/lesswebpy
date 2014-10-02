@@ -1,4 +1,4 @@
-Simplified web.py.
+Pythonic web.py
 ===========
 
 Making `web.py` request handling more pythonic.

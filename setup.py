@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name="less.web.py",
-    version="0.1.0",
+    version="0.1.1",
     author="Pavan Mishra",
     author_email="pavanmishra@gmail.com",
     py_modules=["lessweb"],
