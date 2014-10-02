@@ -6,7 +6,7 @@ Making `web.py` request handling more pythonic.
 
 ```python
 
-import less.web
+import lessweb
 
 def hello(ctx, name):
   if not name:
@@ -15,7 +15,7 @@ def hello(ctx, name):
 
 urls = ('GET', '/(.*)', hello)
 
-app = less.web.application(urls, locals())
+app = lessweb.application(urls, locals())
 
 ```
 
@@ -30,8 +30,8 @@ def hello(ctx):
   return 'Hello, from ' + ctx.env.get('REMOTE_HOST') or ctx.ip
 
 urls = ('GET', '/', hello)
-import less.web
-app = less.web.application(urls, locals())
+import lessweb
+app = lessweb.application(urls, locals())
 
 ```
 
@@ -40,14 +40,14 @@ do what they did already.
 
 ```python
 import web
-import less.web
+import lessweb
 
 def redirect_to_referer(ctx):
 	referer = ctx.env.get('HTTP_REFERER', 'http://webpy.org')
 	raise web.seeother(referer)
 
 urls = ('GET', '/', redirect_to_referer)
-app = less.web.application(urls, locals())
+app = lessweb.application(urls, locals())
 ```
 It's implemented as a tiny pythonic wrapper around `web.py` request handling.
 
