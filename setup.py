@@ -5,7 +5,7 @@ setup(
     version="0.1.0",
     author="Pavan Mishra",
     author_email="pavanmishra@gmail.com",
-    packages=["less"],
+    py_modules=["lessweb"],
     include_package_data=True,
     url="http://pypi.python.org/pypi/less.web.py_v010/",
     license="LICENSE",

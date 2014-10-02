@@ -1,7 +1,8 @@
-less.web.py -- web.py without mits of magic.
+Simplified web.py.
 ===========
 
-A tiny pythonic wrapper around web.py's request handling.
+Making `web.py` request handling more pythonic.
+
 
 ```python
 
@@ -47,4 +48,13 @@ def redirect_to_referer(ctx):
 
 urls = ('GET', '/', redirect_to_referer)
 app = less.web.application(urls, locals())
+```
+It's implemented as a tiny pythonic wrapper around `web.py` request handling.
+
+The idea is to allow all request/response manipulation through `ctx`(context) of the handler function rather than module(`web`) level functions. `ctx` is basically `web.ctx` of `web.py`, which is already used to set and access request context. It also wraps other module level functionality of `web.py` such as `header`, `input`, `cookies`, `sessions` to yield a more pythonic interface.
+
+To use sessions you have to configure session store in config as follows.
+
+```python
+web.config.sessionstore = web.session.DiskStore('sessions') # for disk store, other stores can be used similarly.
 ```
